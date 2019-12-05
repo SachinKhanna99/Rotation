@@ -1,0 +1,28 @@
+import turtle
+turtle.Turtle()
+
+def rect(a,b,c):
+    turtle.left(c)
+    turtle.forward(a)
+    turtle.left(90)
+    turtle.forward(b)
+    turtle.left(90)
+    turtle.forward(a)
+    turtle.left(90)
+    turtle.forward(b)
+    turtle.left(90)
+
+def rotation(x,y,z):
+    x1=[[x,y]]
+    y1=[[cos(z),sin(z)],[[-sin(z),cos(z)]]]
+    result=[[0,0]]
+
+    for i in range(len(x1)):
+        for j in range(len(y1[0])):
+            for k in range(len(y1)):
+                result[i][j]+=x1[i][k]+y1[k][j]
+    print("After rotation")
+    rect(x,y,result[0][0])
+    for r in result:
+        print(r)
+rect(100,40,45)
